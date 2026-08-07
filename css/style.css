@@ -6,11 +6,16 @@
     --bs-light: #dfdbdf;
     --bs-success: #8decc0;
     --bs-danger: #dc3545;
+    --bg-escuro: #3d293a;
 
 }
 
 .bg-rosa-principal {
     background-color: #d396c9 ;
+}
+
+.bg-escuro {
+    background-color: #3d293a ;
 }
 
 .text-pink {
@@ -19,7 +24,7 @@
 
 
 .text-cinza-escuro {
-    color: #383738;
+    color: #6b606b;
 }
 
 .text-rosa-escuro {
