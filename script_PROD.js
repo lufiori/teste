@@ -40,14 +40,13 @@ async function carregarProdutos(categoria, destino){
                                     <div class="p-4 border border-secondary border-top-0 rounded-bottom">
 
                                         <p>${produto.nome}</p>
-                                        <p>.</p>
 
-                                        <div class="d-flex justify-content-between flex-lg-wrap">
-                                            <p class="text-dark fs-5 fw-bold mb-0">$ ${produto.preco}</p>
-                                            <a href="${produto.link}" target="_blank" class="btn border border-secondary rounded-pill px-3 text-rosa-escuro">
-                                                <i class="fa fa-shopping-bag me-2 text-rosa-escuro"></i> Ver ${produto.loja}
-                                            </a>
+                                        <h4> $ ${produto.preco} </h4>
+
+                                        <a href="${produto.link}" target="_blank" class="btn border border-secondary rounded-pill px-3 text-rosa-escuro">
+                                            <i class="fa fa-shopping-bag me-2 text-rosa-escuro"></i>  Ver ${produto.loja}</a>
                                         </div>
+
                                     </div>
                                 </div>
                             </div>
@@ -57,6 +56,14 @@ async function carregarProdutos(categoria, destino){
 
             `;
         });
+}
+
+
+const params = new URLSearchParams(window.location.search);
+const categoria = params.get("cat") || "Todos";
+
+if(document.getElementById("catalogo")){
+    carregarProdutos(categoria, "catalogo");
 }
 
 if(document.getElementById("catalogo-todos")){
@@ -98,3 +105,4 @@ if(document.getElementById("catalogo-utilidades")){
 if(document.getElementById("catalogo-eletro")){
     carregarProdutos("Eletroeletronicos e Eletrodomésticos", "catalogo-eletro");
 }
+
