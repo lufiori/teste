@@ -106,3 +106,108 @@ if(document.getElementById("catalogo-eletro")){
     carregarProdutos("Eletroeletronicos e Eletrodomésticos", "catalogo-eletro");
 }
 
+async function pesquisarProdutos(texto){
+
+    const resposta = await fetch("produtos.json");
+    const produtos = await resposta.json();
+
+    texto = texto.toLowerCase();
+
+    const produtosFiltrados = produtos.filter(produto =>
+        produto.nome.toLowerCase().includes(texto) ||
+        produto.descricao.toLowerCase().includes(texto) ||
+        produto.categoria.toLowerCase().includes(texto)
+    );
+
+    document.getElementById("tituloCategoria").innerText =
+        texto === "" ? "Todos" : "Pesquisa";
+
+    document.getElementById("quantidadeProdutos").innerText =
+        produtosFiltrados.length + " produtos encontrados";
+
+    const catalogo = document.getElementById("catalogo");
+    catalogo.innerHTML = "";
+
+    produtosFiltrados.forEach(produto => {
+
+        catalogo.innerHTML += `
+
+            <div class="col-md-6 col-lg-4 col-xl-3">
+                <div class="rounded position-relative fruite-item">
+
+                    <div class="fruite-img">
+                        <img src="${produto.imagem}" class="img-fluid w-100 rounded-top">
+                    </div>
+
+                    <div class="text-white bg-secondary px-3 py-1 rounded position-absolute"
+                         style="top:10px;left:10px;">
+                        ${produto.categoria}
+                    </div>
+
+                    <div class="p-4 border border-secondary border-top-0 rounded-bottom">
+                        <h4>${produto.nome}</h4>
+                        <p>${produto.descricao}</p>
+
+                        <div class="d-flex justify-content-between flex-lg-wrap">
+                            <p class="text-dark fs-5 fw-bold mb-0">
+                                R$ ${produto.preco}
+                            </p>
+
+                            <a href="${produto.link}" target="_blank"
+                               class="btn border border-secondary rounded-pill px-3 text-rosa-escuro">
+                               Ver ${produto.loja}
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        `;
+
+    });
+
+}
+
+
+const campoPesquisa = document.getElementById("campoPesquisa");
+
+if(campoPesquisa){
+
+    campoPesquisa.addEventListener("input", function(){
+
+        const texto = this.value.trim();
+
+        if(texto === ""){
+
+            const params = new URLSearchParams(window.location.search);
+            const categoria = params.get("cat") || "Todos";
+
+            carregarProdutos(categoria, "catalogo");
+
+        }else{
+
+            pesquisarProdutos(texto);
+
+        }
+
+    });
+
+}
+
+
+const filtroValor = document.getElementById("filtroValor");
+
+if (filtroValor) {
+
+    filtroValor.addEventListener("input", function () {
+
+        document.getElementById("valorSelecionado").innerText =
+            "R$ " + this.value;
+
+    });
+
+}
+
+
+
