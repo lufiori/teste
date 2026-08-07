@@ -19,14 +19,14 @@ async function carregarProdutos(categoria, destino){
     catalogo.innerHTML = "";
 
     produtosCategoria
-        .slice(0, destino === "catalogo" ? 9999 : 500)
+        .slice(0, destino === "catalogo" ? 9999 : 8)
         .forEach(produto => {
 
             catalogo.innerHTML += `
 
-                <div class="row g-4">
-                    <div class="col-lg-12">
-                        <div class="row g-4">
+
+
+
                             <div class="col-md-6 col-lg-4 col-xl-3">
                                 <div class="rounded position-relative fruite-item">
                                     <div class="fruite-img">
@@ -38,8 +38,9 @@ async function carregarProdutos(categoria, destino){
                                     </div>
 
                                     <div class="p-4 border border-secondary border-top-0 rounded-bottom">
-                                        <h4>${produto.nome}</h4>
-                                        <p>${produto.descricao}</p>
+
+                                        <p>${produto.nome}</p>
+                                        <p>.</p>
 
                                         <div class="d-flex justify-content-between flex-lg-wrap">
                                             <p class="text-dark fs-5 fw-bold mb-0">$ ${produto.preco}</p>
@@ -50,16 +51,16 @@ async function carregarProdutos(categoria, destino){
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                </div>
+
+
+
 
             `;
         });
 }
 
-if(document.getElementById("catalogo")){
-    carregarProdutos("Todos", "catalogo");
+if(document.getElementById("catalogo-todos")){
+    carregarProdutos("Todos", "catalogo-todos");
 }
 
 if(document.getElementById("catalogo-beleza")){
