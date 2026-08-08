@@ -66,74 +66,112 @@
 
 
 <!-------------------------------------------------------------------------------- AREA DE CONSULTAS -->
-            <div class="container py-5">
+<div class="container py-4">
 
-                <div class="input-group w-50 mx-auto d-flex">
-                    <input type="text" id="campoPesquisa" class="form-control" placeholder="Digite qualquer palavra...">
-                    <span id="search-icon-1" class="input-group-text p-3"><i class="fa fa-search"></i></span>
+    <div class="p-5 rounded-4 shadow-sm" style="background: #faf7fa; border: 1px solid #eadce7;">
 
+        <div class="text-center mb-4">
+            <h2 class="fw-bold text-rosa-escuro mb-2">Encontre o que você procura</h2>
+            <p class="text-muted mb-0">
+                Pesquise por nome do produto ou selecione uma categoria para ver as melhores recomendações.
+            </p>
+        </div>
+
+        <div class="row g-3 justify-content-center">
+
+            <div class="col-lg-7">
+                <div class="input-group">
+                    <input type="text"
+                           id="campoPesquisa"
+                           class="form-control form-control-lg border-0 shadow-sm"
+                           placeholder="Digite qualquer palavra...">
+
+                    <span class="input-group-text bg-white border-0 shadow-sm">
+                        <i class="fa fa-search text-secondary"></i>
+                    </span>
                 </div>
+            </div>
 
-                    <p>.</p>
-
-                <div class="input-group w-50 mx-auto d-flex" >
-                    <button class="btn border px-4 py-2 dropdown-toggle"
+            <div class="col-lg-5">
+                <div class="dropdown w-100">
+                    <button class="btn btn-light border shadow-sm dropdown-toggle w-100 text-start py-3"
                             type="button"
                             data-bs-toggle="dropdown"
                             aria-expanded="false">
-                        Selecione a Categoria que deseja consultar...
+                        Selecione a categoria
                     </button>
 
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="index.html?cat=Todos">Todos os produtos   </a></li>
-                        <li><a class="dropdown-item" href="index.html?cat=Beleza">Beleza & Autocuidado   </a></li>
-                        <li><a class="dropdown-item" href="index.html?cat=Casa%20e%20Organiza%C3%A7%C3%A3o">Casa & Organização   </a></li>
-                        <li><a class="dropdown-item" href="index.html?cat=Cozinha">Cozinha & Acessórios   </a></li>
-                        <li><a class="dropdown-item" href="index.html?cat=Fitness%20e%20Sa%C3%BAde">Fitness & Saúde   </a></li>
-                        <li><a class="dropdown-item" href="index.html?cat=Moda%20e%20Acess%C3%B3rios">Moda & Acessórios   </a></li>
-                        <li><a class="dropdown-item" href="index.html?cat=Pets">Acessórios para Pet's   </a></li>
-                        <li><a class="dropdown-item" href="index.html?cat=Tecnologia">Tecnologia   </a></li>
-                        <li><a class="dropdown-item" href="index.html?cat=Utilidades">Utilidades   </a></li>
-                        <li><a class="dropdown-item" href="index.html?cat=Eletroeletronicos%20e%20Eletrodom%C3%A9sticos">Eletroeletrônicos   </a></li>
+                    <ul class="dropdown-menu w-100">
+                        <li><a class="dropdown-item" href="index.html?cat=Todos">Todos os produtos</a></li>
+                        <li><a class="dropdown-item" href="index.html?cat=Beleza">Beleza & Autocuidado</a></li>
+                        <li><a class="dropdown-item" href="index.html?cat=Casa%20e%20Organiza%C3%A7%C3%A3o">Casa & Organização</a></li>
+                        <li><a class="dropdown-item" href="index.html?cat=Cozinha">Cozinha & Acessórios</a></li>
+                        <li><a class="dropdown-item" href="index.html?cat=Fitness%20e%20Sa%C3%BAde">Fitness & Saúde</a></li>
+                        <li><a class="dropdown-item" href="index.html?cat=Moda%20e%20Acess%C3%B3rios">Moda & Acessórios</a></li>
+                        <li><a class="dropdown-item" href="index.html?cat=Pets">Acessórios para Pet's</a></li>
+                        <li><a class="dropdown-item" href="index.html?cat=Tecnologia">Tecnologia</a></li>
+                        <li><a class="dropdown-item" href="index.html?cat=Utilidades">Utilidades</a></li>
+                        <li><a class="dropdown-item" href="index.html?cat=Eletroeletronicos%20e%20Eletrodom%C3%A9sticos">Eletroeletrônicos</a></li>
                     </ul>
-                </div>    
-                
+                </div>
             </div>
+
+        </div>
+
+    </div>
+
+</div>
 
 
  <!--------------------------------------------------------------------------------------------------------------------- pesquisa geral -->
-        <div class="container-fluid fruite py-5">
-            <div class="container py-5">
-                <h1 class="mb-4" id="tituloCategoria">Todos</h1>
-                <div class="row g-4">
+<!-- Catálogo -->
+<div class="container-fluid fruite py-3">
+    <div class="container">
 
-                    <p id="quantidadeProdutos"></p>
+        <!-- Cabeçalho dos resultados -->
+        <div class="d-flex justify-content-between align-items-center flex-wrap mb-3">
 
-                    <div class="col-lg-12">
-                        <div id="catalogo" class="row g-4"></div>
-                                             
-                            <div class="col-12">
-                                <div class="pagination d-flex justify-content-center mt-5">
-                                    <a href="#" class="rounded">&laquo;</a>
-                                    <a href="#" class="active rounded">1</a>
-                                    <a href="#" class="rounded">2</a>
-                                    <a href="#" class="rounded">3</a>
-                                    <a href="#" class="rounded">4</a>
-                                    <a href="#" class="rounded">5</a>
-                                    <a href="#" class="rounded">6</a>
-                                    <a href="#" class="rounded">&raquo;</a>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-
-                </div>
-                
+            <div>
+                <h1 class="mb-1" id="tituloCategoria">Todos</h1>
+                <p id="quantidadeProdutos" class="text-muted mb-0">
+                    0 produtos encontrados
+                </p>
             </div>
-            
+
+            <div class="mt-3 mt-md-0">
+                <select id="ordenacao" class="form-select">
+                    <option value="relevancia">Ordenar por</option>
+                    <option value="menor-preco">Menor preço</option>
+                    <option value="maior-preco">Maior preço</option>
+                    <option value="az">Nome (A–Z)</option>
+                    <option value="za">Nome (Z–A)</option>
+                </select>
+            </div>
+
         </div>
-        <!-- Fruits Shop End-->
+
+        <!-- Produtos -->
+        <div id="catalogo" class="row g-4">
+            <!-- Os produtos serão inseridos aqui pelo JavaScript -->
+        </div>
+
+        <!-- Paginação -->
+        <div class="col-12">
+            <div class="pagination d-flex justify-content-center mt-5">
+                <a href="#" class="rounded">&laquo;</a>
+                <a href="#" class="active rounded">1</a>
+                <a href="#" class="rounded">2</a>
+                <a href="#" class="rounded">3</a>
+                <a href="#" class="rounded">4</a>
+                <a href="#" class="rounded">5</a>
+                <a href="#" class="rounded">6</a>
+                <a href="#" class="rounded">&raquo;</a>
+            </div>
+        </div>
+
+    </div>
+</div>
+<!-- Catálogo End -->
 
 
 

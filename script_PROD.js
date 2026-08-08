@@ -1,3 +1,10 @@
+let produtosFiltrados = [];
+let paginaAtual = 1;
+const produtosPorPagina = 10;
+
+// =============================
+// CARREGAR PRODUTOS
+// =============================
 async function carregarProdutos(categoria, destino){
 
     const resposta = await fetch("produtos.json");
@@ -16,96 +23,224 @@ async function carregarProdutos(categoria, destino){
     const catalogo = document.getElementById(destino);
     if (!catalogo) return;
 
+    produtosFiltrados = produtosCategoria;
+    paginaAtual = 1;
+
+    renderizarPagina();
+}
+
+// =============================
+// RENDERIZAR PÁGINA
+// =============================
+function renderizarPagina(){
+
+    const catalogo = document.getElementById("catalogo");
+    if (!catalogo) return;
+
     catalogo.innerHTML = "";
 
-    produtosCategoria
-        .slice(0, destino === "catalogo" ? 9999 : 8)
-        .forEach(produto => {
+    const inicio = (paginaAtual - 1) * produtosPorPagina;
+    const fim = inicio + produtosPorPagina;
 
-            catalogo.innerHTML += `
+    const produtosPagina = produtosFiltrados.slice(inicio, fim);
 
+    produtosPagina.forEach(produto => {
 
+        catalogo.innerHTML += `
 
+            <div class="col-md-6 col-lg-4 col-xl-3">
+                <div class="rounded position-relative fruite-item">
 
-                            <div class="col-md-6 col-lg-4 col-xl-3">
-                                <div class="rounded position-relative fruite-item">
-                                    <div class="fruite-img">
-                                        <img src="${produto.imagem}" alt="Image" class="img-fluid w-100 rounded-top">
-                                    </div>
+                    <div class="fruite-img">
+                        <img src="${produto.imagem}"
+                             class="img-fluid w-100 rounded-top">
+                    </div>
 
-                                    <div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">
-                                        ${produto.categoria}
-                                    </div>
+                    <div class="text-white bg-secondary px-3 py-1 rounded position-absolute"
+                         style="top:10px;left:10px;">
+                        ${produto.categoria}
+                    </div>
 
-                                    <div class="p-4 border border-secondary border-top-0 rounded-bottom">
+                    <div class="p-4 border border-secondary border-top-0 rounded-bottom">
 
-                                        <p>${produto.nome}</p>
+                        <h4>${produto.nome}</h4>
+                        <p>${produto.descricao}</p>
 
-                                        <h4> $ ${produto.preco} </h4>
+                        <div class="d-flex justify-content-between flex-lg-wrap">
 
-                                        <a href="${produto.link}" target="_blank" class="btn border border-secondary rounded-pill px-3 text-rosa-escuro">
-                                            <i class="fa fa-shopping-bag me-2 text-rosa-escuro"></i>  Ver ${produto.loja}</a>
-                                        </div>
+                            <p class="text-dark fs-5 fw-bold mb-0">
+                                R$ ${produto.preco}
+                            </p>
 
-                                    </div>
-                                </div>
-                            </div>
+                            <a href="${produto.link}"
+                               target="_blank"
+                               class="btn border border-secondary rounded-pill px-3 text-rosa-escuro">
+                                Ver ${produto.loja}
+                            </a>
 
+                        </div>
 
+                    </div>
 
+                </div>
 
-            `;
-        });
+            </div>
+
+        `;
+
+    });
+
+    criarPaginacao();
+}
+
+// =============================
+// PAGINAÇÃO
+// =============================
+function criarPaginacao(){
+
+    const paginacao = document.querySelector(".pagination");
+    if (!paginacao) return;
+
+    const totalPaginas = Math.ceil(
+        produtosFiltrados.length / produtosPorPagina
+    );
+
+    paginacao.innerHTML = "";
+
+    if(totalPaginas <= 1) return;
+
+    // Botão anterior
+    if(paginaAtual > 1){
+
+        paginacao.innerHTML += `
+            <a href="#"
+               class="rounded"
+               onclick="irParaPagina(${paginaAtual - 1}); return false;">
+                &laquo;
+            </a>
+        `;
+
+    }
+
+    // Números das páginas
+    for(let i = 1; i <= totalPaginas; i++){
+
+        paginacao.innerHTML += `
+            <a href="#"
+               class="rounded ${i === paginaAtual ? "active" : ""}"
+               onclick="irParaPagina(${i}); return false;">
+                ${i}
+            </a>
+        `;
+
+    }
+
+    // Botão próxima
+    if(paginaAtual < totalPaginas){
+
+        paginacao.innerHTML += `
+            <a href="#"
+               class="rounded"
+               onclick="irParaPagina(${paginaAtual + 1}); return false;">
+                &raquo;
+            </a>
+        `;
+
+    }
+
+}
+
+// =============================
+// IR PARA PÁGINA
+// =============================
+function irParaPagina(numero){
+
+    paginaAtual = numero;
+
+    renderizarPagina();
+
+    window.scrollTo({
+        top: document.getElementById("catalogo").offsetTop - 120,
+        behavior: "smooth"
+    });
+
 }
 
 
-const params = new URLSearchParams(window.location.search);
-const categoria = params.get("cat") || "Todos";
+function ordenarProdutos(tipo){
 
-if(document.getElementById("catalogo")){
-    carregarProdutos(categoria, "catalogo");
+    // Converte o preço para número corretamente
+    function converterPreco(preco){
+
+        if(typeof preco === "number"){
+            return preco;
+        }
+
+        if(typeof preco === "string"){
+
+            return parseFloat(
+                preco
+                    .replace("R$", "")
+                    .replace(/\s/g, "")
+                    .replace(/\./g, "")
+                    .replace(",", ".")
+            );
+
+        }
+
+        return 0;
+    }
+
+
+    if(tipo === "menor-preco"){
+
+        produtosFiltrados.sort((a, b) =>
+            converterPreco(a.preco) - converterPreco(b.preco)
+        );
+
+    }
+
+
+    if(tipo === "maior-preco"){
+
+        produtosFiltrados.sort((a, b) =>
+            converterPreco(b.preco) - converterPreco(a.preco)
+        );
+
+    }
+
+
+    if(tipo === "az"){
+
+        produtosFiltrados.sort((a, b) =>
+            a.nome.localeCompare(b.nome, "pt-BR")
+        );
+
+    }
+
+
+    if(tipo === "za"){
+
+        produtosFiltrados.sort((a, b) =>
+            b.nome.localeCompare(a.nome, "pt-BR")
+        );
+
+    }
+
+
+    paginaAtual = 1;
+
+    renderizarPagina();
+
 }
 
-if(document.getElementById("catalogo-todos")){
-    carregarProdutos("Todos", "catalogo-todos");
-}
 
-if(document.getElementById("catalogo-beleza")){
-    carregarProdutos("Beleza", "catalogo-beleza");
-}
 
-if(document.getElementById("catalogo-casa")){
-    carregarProdutos("Casa e Organização", "catalogo-casa");
-}
 
-if(document.getElementById("catalogo-cozinha")){
-    carregarProdutos("Cozinha", "catalogo-cozinha");
-}
 
-if(document.getElementById("catalogo-fitness")){
-    carregarProdutos("Fitness e Saúde", "catalogo-fitness");
-}
-
-if(document.getElementById("catalogo-moda")){
-    carregarProdutos("Moda e Acessórios", "catalogo-moda");
-}
-
-if(document.getElementById("catalogo-pets")){
-    carregarProdutos("Pets", "catalogo-pets");
-}
-
-if(document.getElementById("catalogo-tecnologia")){
-    carregarProdutos("Tecnologia", "catalogo-tecnologia");
-}
-
-if(document.getElementById("catalogo-utilidades")){
-    carregarProdutos("Utilidades", "catalogo-utilidades");
-}
-
-if(document.getElementById("catalogo-eletro")){
-    carregarProdutos("Eletroeletronicos e Eletrodomésticos", "catalogo-eletro");
-}
-
+// =============================
+// PESQUISA
+// =============================
 async function pesquisarProdutos(texto){
 
     const resposta = await fetch("produtos.json");
@@ -113,7 +248,7 @@ async function pesquisarProdutos(texto){
 
     texto = texto.toLowerCase();
 
-    const produtosFiltrados = produtos.filter(produto =>
+    produtosFiltrados = produtos.filter(produto =>
         produto.nome.toLowerCase().includes(texto) ||
         produto.descricao.toLowerCase().includes(texto) ||
         produto.categoria.toLowerCase().includes(texto)
@@ -125,51 +260,15 @@ async function pesquisarProdutos(texto){
     document.getElementById("quantidadeProdutos").innerText =
         produtosFiltrados.length + " produtos encontrados";
 
-    const catalogo = document.getElementById("catalogo");
-    catalogo.innerHTML = "";
+    paginaAtual = 1;
 
-    produtosFiltrados.forEach(produto => {
-
-        catalogo.innerHTML += `
-
-            <div class="col-md-6 col-lg-4 col-xl-3">
-                <div class="rounded position-relative fruite-item">
-
-                    <div class="fruite-img">
-                        <img src="${produto.imagem}" class="img-fluid w-100 rounded-top">
-                    </div>
-
-                    <div class="text-white bg-secondary px-3 py-1 rounded position-absolute"
-                         style="top:10px;left:10px;">
-                        ${produto.categoria}
-                    </div>
-
-                    <div class="p-4 border border-secondary border-top-0 rounded-bottom">
-                        <h4>${produto.nome}</h4>
-                        <p>${produto.descricao}</p>
-
-                        <div class="d-flex justify-content-between flex-lg-wrap">
-                            <p class="text-dark fs-5 fw-bold mb-0">
-                                R$ ${produto.preco}
-                            </p>
-
-                            <a href="${produto.link}" target="_blank"
-                               class="btn border border-secondary rounded-pill px-3 text-rosa-escuro">
-                               Ver ${produto.loja}
-                            </a>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-
-        `;
-
-    });
+    renderizarPagina();
 
 }
 
-
+// =============================
+// EVENTO DA PESQUISA
+// =============================
 const campoPesquisa = document.getElementById("campoPesquisa");
 
 if(campoPesquisa){
@@ -195,19 +294,26 @@ if(campoPesquisa){
 
 }
 
+// =============================
+// CARREGAMENTO INICIAL
+// =============================
+const params = new URLSearchParams(window.location.search);
+const categoria = params.get("cat") || "Todos";
 
-const filtroValor = document.getElementById("filtroValor");
-
-if (filtroValor) {
-
-    filtroValor.addEventListener("input", function () {
-
-        document.getElementById("valorSelecionado").innerText =
-            "R$ " + this.value;
-
-    });
-
+if(document.getElementById("catalogo")){
+    carregarProdutos(categoria, "catalogo");
 }
 
 
 
+const selectOrdenacao = document.getElementById("ordenacao");
+
+if(selectOrdenacao){
+
+    selectOrdenacao.addEventListener("change", function(){
+
+        ordenarProdutos(this.value);
+
+    });
+
+}
