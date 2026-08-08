@@ -7,12 +7,14 @@
     --bs-success: #8decc0;
     --bs-danger: #dc3545;
     --bg-escuro: #3d293a;
+    --bg-rosa-top: #d396c9;
 
 }
 
 .bg-rosa-principal {
     background-color: #d396c9 ;
 }
+
 
 .bg-escuro {
     background-color: #3d293a ;
@@ -22,6 +24,9 @@
     color: #eb08c5;
 }
 
+.text-branco {
+    color: #ffffff;
+}
 
 .text-cinza-escuro {
     color: #6b606b;
@@ -138,14 +143,15 @@
 /*** Topbar Start ***/
 .fixed-top {
     transition: 0.5s;
-    background: var(--bs-white);
+    background: var( --bg-rosa-top);
     border: 0;
     
 }
 
 .topbar {
     padding: 20px;
-    border-radius: 230px 100px;
+    border-radius: 0px 0px;
+    width: 100%;
     
 
 }
@@ -231,7 +237,7 @@
     transform: rotateX(0deg);
     visibility: visible;
     background: var(--bs-light) !important;
-    border-radius: 10px !important;
+    
     transition: .5s;
     opacity: 1;
 }
@@ -365,7 +371,7 @@
 
 .fruite .fruite-item {
     height: auto;
-    margin-right: 15px;
+    margin-right: 5px;
     margin-bottom: 25px;
     transition: 0.05s;
 }
