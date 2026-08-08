@@ -3,7 +3,7 @@
 
     <head>
         <meta charset="utf-8">
-        <title>Fruitables - Vegetable Website Template</title>
+        <title>Mundo LuFiNas</title>
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
         <meta content="" name="keywords">
         <meta content="" name="description">
@@ -34,6 +34,7 @@
         <!-- Spinner Start -->
         <div id="spinner" class="show w-100 vh-100 bg-white position-fixed translate-middle top-50 start-50  d-flex align-items-center justify-content-center">
             <div class="spinner-grow text-rosa-escuro" role="status"></div>
+            Carregando...
         </div>
         <!-- Spinner End -->
 
@@ -41,108 +42,86 @@
         <!-- Navbar start -->
         <div class="container-fluid fixed-top">
             <div class="container topbar bg-rosa-principal d-none d-lg-block">
-                <div class="d-flex justify-content-between">
-                    <div class="top-info ps-2">
-                         
-                    </div>
-                </div>
+
             </div>
-            <div class="container px-0">
+            <div class="container  px-0">
              
-                <nav class="navbar navbar-light bg-white navbar-expand-xl">
+                <nav class="navbar navbar-light bg-rosa-principal navbar-expand-xl">
                     
-                    <a href="index.html" class="navbar-brand"><h1 class="text-rosa-escuro display-6">Mundo LuFiNas</h1></a>
-   <div class="input-group w-50 mx-auto d-flex">
-    <input type="text" id="campoPesquisa" class="form-control" placeholder="Digite qualquer palavra...">
-    <span id="search-icon-1" class="input-group-text p-3"><i class="fa fa-search"></i></span>
-
-</div>                     
-
+                    <a href="index.html" class="navbar-brand"><h1 class="text-branco display-6">Mundo LuFiNas</h1></a>
 
                 </nav>
             </div>
         </div>
         <!-- Navbar End -->
+        <!-- Single Page Header start -->
+        <div class="container-fluid page-header py-5">
+            <h1 class="text-center text-white display-6">Recomendações</h1>
+            <ol class="breadcrumb justify-content-center mb-0">
+                <li class="breadcrumb-item active text-white"></li>
+            </ol>
+        </div>
+        <!-- Single Page Header End -->
 
 
 
+<!-------------------------------------------------------------------------------- AREA DE CONSULTAS -->
             <div class="container py-5">
 
+                <div class="input-group w-50 mx-auto d-flex">
+                    <input type="text" id="campoPesquisa" class="form-control" placeholder="Digite qualquer palavra...">
+                    <span id="search-icon-1" class="input-group-text p-3"><i class="fa fa-search"></i></span>
+
+                </div>
+
+                    <p>.</p>
+
+                <div class="input-group w-50 mx-auto d-flex" >
+                    <button class="btn border px-4 py-2 dropdown-toggle"
+                            type="button"
+                            data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                        Selecione a Categoria que deseja consultar...
+                    </button>
+
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="index.html?cat=Todos">Todos os produtos   </a></li>
+                        <li><a class="dropdown-item" href="index.html?cat=Beleza">Beleza & Autocuidado   </a></li>
+                        <li><a class="dropdown-item" href="index.html?cat=Casa%20e%20Organiza%C3%A7%C3%A3o">Casa & Organização   </a></li>
+                        <li><a class="dropdown-item" href="index.html?cat=Cozinha">Cozinha & Acessórios   </a></li>
+                        <li><a class="dropdown-item" href="index.html?cat=Fitness%20e%20Sa%C3%BAde">Fitness & Saúde   </a></li>
+                        <li><a class="dropdown-item" href="index.html?cat=Moda%20e%20Acess%C3%B3rios">Moda & Acessórios   </a></li>
+                        <li><a class="dropdown-item" href="index.html?cat=Pets">Acessórios para Pet's   </a></li>
+                        <li><a class="dropdown-item" href="index.html?cat=Tecnologia">Tecnologia   </a></li>
+                        <li><a class="dropdown-item" href="index.html?cat=Utilidades">Utilidades   </a></li>
+                        <li><a class="dropdown-item" href="index.html?cat=Eletroeletronicos%20e%20Eletrodom%C3%A9sticos">Eletroeletrônicos   </a></li>
+                    </ul>
+                </div>    
+                
             </div>
 
 
-  
-        <!-- Hero End -->
-
-        <!------------------------------------------------------------------------------------------------------------------------------- pesquisa geral -->
+ <!--------------------------------------------------------------------------------------------------------------------- pesquisa geral -->
         <div class="container-fluid fruite py-5">
             <div class="container py-5">
-                <h1 class="mb-4"></h1>
+                <h1 class="mb-4" id="tituloCategoria">Todos</h1>
                 <div class="row g-4">
+
+                    <p id="quantidadeProdutos"></p>
+
                     <div class="col-lg-12">
-                        <!-- <div class="row g-4">
-                            <div class="col-xl-3">
-                            </div>
-                        </div> -->
-                                            <h1>Vitrine de Recomendações</h1>                                                                                            
-                        <div class="row g-4">
-                                                <div class="input-group w-100 mx-auto d-flex">
-                                                    <input type="text" id="campoPesquisa" class="form-control" placeholder="Digite qualquer palavra...">
-                                                    <span id="search-icon-1" class="input-group-text p-3"><i class="fa fa-search"></i></span>
-
-                                                </div>
-<div class="dropdown">
-    <button class="btn border rounded-pill px-4 py-2 dropdown-toggle"
-            type="button"
-            data-bs-toggle="dropdown"
-            aria-expanded="false">
-        Selecione a Categoria que deseja consultar.
-    </button>
-
-    <ul class="dropdown-menu">
-        <li><a class="dropdown-item" href="index.html?cat=Todos">Todos os produtos</a></li>
-        <li><a class="dropdown-item" href="index.html?cat=Beleza">Beleza & Autocuidado</a></li>
-        <li><a class="dropdown-item" href="index.html?cat=Casa%20e%20Organiza%C3%A7%C3%A3o">Casa & Organização</a></li>
-        <li><a class="dropdown-item" href="index.html?cat=Cozinha">Cozinha & Acessórios</a></li>
-        <li><a class="dropdown-item" href="index.html?cat=Fitness%20e%20Sa%C3%BAde">Fitness & Saúde</a></li>
-        <li><a class="dropdown-item" href="index.html?cat=Moda%20e%20Acess%C3%B3rios">Moda & Acessórios</a></li>
-        <li><a class="dropdown-item" href="index.html?cat=Pets">Acessórios para Pet's</a></li>
-        <li><a class="dropdown-item" href="index.html?cat=Tecnologia">Tecnologia</a></li>
-        <li><a class="dropdown-item" href="index.html?cat=Utilidades">Utilidades</a></li>
-        <li><a class="dropdown-item" href="index.html?cat=Eletroeletronicos%20e%20Eletrodom%C3%A9sticos">Eletroeletrônicos</a></li>
-    </ul>
-</div>
-
-                   <div class="tab-content">
-                        <div id="todos" class="tab-pane fade show p-0 active">
-                                <div class="row g-4 justify-content-center">
-                                    <!-- Área dos produtos -->
-
-
-                                            <h2 id="tituloCategoria">Todos</h2>
-                                            <p id="quantidadeProdutos"></p>
-                                            <div class="col-lg-12">
-                                                <div id="catalogo" class="row g-4">
-                                            </div>    
-                                                <!-- Os produtos serão inseridos aqui -->
-                                            </div>
-
-
-
-                                    
-
-                                    <div class="col-12">
-                                        <!-- <div class="pagination d-flex justify-content-center mt-5">
-                                            <a href="#" class="rounded">&laquo;</a>
-                                            <a href="#" class="active rounded">1</a>
-                                            <a href="#" class="rounded">2</a>
-                                            <a href="#" class="rounded">3</a>
-                                            <a href="#" class="rounded">4</a>
-                                            <a href="#" class="rounded">5</a>
-                                            <a href="#" class="rounded">6</a>
-                                            <a href="#" class="rounded">&raquo;</a>
-                                        </div> -->
-                                    </div>
+                        <div id="catalogo" class="row g-4"></div>
+                                             
+                            <div class="col-12">
+                                <div class="pagination d-flex justify-content-center mt-5">
+                                    <a href="#" class="rounded">&laquo;</a>
+                                    <a href="#" class="active rounded">1</a>
+                                    <a href="#" class="rounded">2</a>
+                                    <a href="#" class="rounded">3</a>
+                                    <a href="#" class="rounded">4</a>
+                                    <a href="#" class="rounded">5</a>
+                                    <a href="#" class="rounded">6</a>
+                                    <a href="#" class="rounded">&raquo;</a>
                                 </div>
                             </div>
 
@@ -156,172 +135,6 @@
         </div>
         <!-- Fruits Shop End-->
 
-
-        <!------------------------------------------------------------------------------------ PRODUTOS -->
-        <div class="container-fluid fruite py-5">
-            <div class="container py-5">
-                <div class="tab-class text-center">
-                    <div class="row g-4">
-                        <div class="col-lg-4 text-start">
-                            <h1>Vitrine de Recomendações</h1>
-                        </div>
-                        <div class="col-lg-8 text-end">
-                            <ul class="nav nav-pills d-inline-flex text-center mb-5">
-                                <li class="nav-item">
-                                    <a class="d-flex m-2 py-2 bg-light rounded-pill active" data-bs-toggle="pill" href="#todos">
-                                        <span class="text-dark" style="width: 130px;">Todos</span>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="d-flex m-2 py-2 bg-light rounded-pill" data-bs-toggle="pill" href="#beleza">
-                                        <span class="text-dark" style="width: 130px;">Beleza & Autocuidado</span>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="d-flex py-2 m-2 bg-light rounded-pill" data-bs-toggle="pill" href="#casa">
-                                        <span class="text-dark" style="width: 130px;">Casa & Organização</span>
-                                    </a>
-                                </li>
-
-                                <li class="nav-item">
-                                    <a class="d-flex m-2 py-2 bg-light rounded-pill" data-bs-toggle="pill" href="#cozinha">
-                                        <span class="text-dark" style="width: 130px;">Cozinha e Acessórios</span>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="d-flex m-2 py-2 bg-light rounded-pill" data-bs-toggle="pill" href="#moda">
-                                        <span class="text-dark" style="width: 130px;">Moda e Acessórios</span>
-                                    </a>
-                                </li>
-
-                            </ul>
-                        </div>
-                    </div>
-
-<!----------------------------------------------------------------------------------------------------------    LISTA DE PRODUTOS -->                    
-                    <div class="tab-content">
-                        <div id="todos" class="tab-pane fade show p-0 active">
-                            <div class="row g-4">
-
-                                    <a href="shop.html?cat=Todos" >
-                                        ✨ Veja +... 
-                                    </a>
-                                <div class="col-lg-12" id="catalogo-todos">
-
-                                    
-                                </div>
-                            </div>
-                        </div>
-
-
-                        <div id="beleza" class="tab-pane fade show p-0">
-                            <div class="row g-4">
-                                    <a href="shop.html?cat=Beleza" class="text-uppercase btn-primary tm-btn mx-auto tm-d-table">
-                                        ✨ Veja +... 
-                                    </a>
-
-                                <div class="col-lg-12" id="catalogo-beleza">
-                                    
-                                </div>
-                            </div>
-                        </div>
-
-                        <div id="casa" class="tab-pane fade show p-0">
-                            <div class="row g-4">
-                                    <a href="shop.html?cat=Casa e Organização" class="text-uppercase btn-primary tm-btn mx-auto tm-d-table">
-                                        ✨ Veja +... 
-                                    </a>
-
-                                <div class="col-lg-12" id="catalogo-casa">
-                                    
-                                </div>
-                            </div>
-                        </div>
-
-                        <div id="cozinha" class="tab-pane fade show p-0">
-                            <div class="row g-4">
-                                    <a href="shop.html?cat=Cozinha" class="text-uppercase btn-primary tm-btn mx-auto tm-d-table">
-                                        ✨ Veja +... 
-                                    </a>
-
-                                <div class="col-lg-12" id="catalogo-cozinha">
-                                    
-                                </div>
-                            </div>
-                        </div>
-
-                        <div id="moda" class="tab-pane fade show p-0">
-                            <div class="row g-4">
-                                    <a href="shop.html?cat=Moda e Acessórios" class="text-uppercase btn-primary tm-btn mx-auto tm-d-table">
-                                        ✨ Veja +... 
-                                    </a>
-
-                                <div class="col-lg-12" id="catalogo-moda">
-                                    
-                                </div>
-                            </div>
-                        </div>
-
-
-                       
-
-                        
-
-                        
-                    </div>
-                </div>      
-            </div>
-        </div>
-        <!-- Fruits Shop End-->
-
-
-        <!----------------------------------------------------------------------------------- PROMOÇÕES IMPERDÍVEIS  -->
-        <div class="container-fluid service py-5">
-            <div class="container py-5">
-                <div class="row g-4 justify-content-center">
-                    <div class="col-md-6 col-lg-4">
-                        <a href="#">
-                            <div class="service-item bg-secondary rounded border border-secondary">
-                                <img src="img/featur-1.jpg" class="img-fluid rounded-top w-100" alt="">
-                                <div class="px-4 rounded-bottom">
-                                    <div class="service-content bg-rosa-principal text-center p-4 rounded">
-                                        <h5 class="text-white">OFERTA 1</h5>
-                                        <h3 class="mb-0">20% OFF</h3>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-md-6 col-lg-4">
-                        <a href="#">
-                            <div class="service-item bg-dark rounded border border-dark">
-                                <img src="img/featur-2.jpg" class="img-fluid rounded-top w-100" alt="">
-                                <div class="px-4 rounded-bottom">
-                                    <div class="service-content bg-light text-center p-4 rounded">
-                                        <h5 class="text-rosa-escuro">OFERTA 2</h5>
-                                        <h3 class="mb-0">50%</h3>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-md-6 col-lg-4">
-                        <a href="#">
-                            <div class="service-item bg-rosa-principal rounded border border-primary">
-                                <img src="img/featur-3.jpg" class="img-fluid rounded-top w-100" alt="">
-                                <div class="px-4 rounded-bottom">
-                                    <div class="service-content bg-secondary text-center p-4 rounded">
-                                        <h5 class="text-white">OFERTA 3</h5>
-                                        <h3 class="mb-0">Desconto de 30$</h3>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Featurs End -->
 
 
         <!----------------------------------------------------------------------------------- PRODUTOS IMPORTADOS - INTERNACIONAIS -->
@@ -451,211 +264,7 @@
 
 
         <!------------------------------------------------------------------------------------------------ QUERIDINHOS DA LUFINA -->
-        <div class="container-fluid py-5">
-            <div class="container py-5">
-                <div class="text-center mx-auto mb-5" style="max-width: 700px;">
-                    <h1 class="display-4">Queridinhos da Lufina</h1>
-                    <p>Separei alguns produtos que comprei, aprovei e compartilhei.</p>
-                </div>
-                <div class="row g-4">
-                    <div class="col-lg-6 col-xl-4">
-                        <div class="p-4 rounded bg-light">
-                            <div class="row align-items-center">
-                                <div class="col-6">
-                                    <img src="img/best-product-1.jpg" class="img-fluid rounded-circle w-100" alt="">
-                                </div>
-                                <div class="col-6">
-                                    <a href="#" class="h5">Organic Tomato</a>
-                                    <div class="d-flex my-3">
-                                        <i class="fas fa-star text-rosa-escuro"></i>
-                                        <i class="fas fa-star text-rosa-escuro"></i>
-                                        <i class="fas fa-star text-rosa-escuro"></i>
-                                        <i class="fas fa-star text-rosa-escuro"></i>
-                                        <i class="fas fa-star"></i>
-                                    </div>
-                                    <h4 class="mb-3">3.12 $</h4>
-                                    <a href="#" class="btn border border-secondary rounded-pill px-3 text-rosa-escuro"><i class="fa fa-shopping-bag me-2 text-rosa-escuro"></i> Add to cart</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-xl-4">
-                        <div class="p-4 rounded bg-light">
-                            <div class="row align-items-center">
-                                <div class="col-6">
-                                    <img src="img/best-product-2.jpg" class="img-fluid rounded-circle w-100" alt="">
-                                </div>
-                                <div class="col-6">
-                                    <a href="#" class="h5">Organic Tomato</a>
-                                    <div class="d-flex my-3">
-                                        <i class="fas fa-star text-rosa-escuro"></i>
-                                        <i class="fas fa-star text-rosa-escuro"></i>
-                                        <i class="fas fa-star text-rosa-escuro"></i>
-                                        <i class="fas fa-star text-rosa-escuro"></i>
-                                        <i class="fas fa-star"></i>
-                                    </div>
-                                    <h4 class="mb-3">3.12 $</h4>
-                                    <a href="#" class="btn border border-secondary rounded-pill px-3 text-rosa-escuro"><i class="fa fa-shopping-bag me-2 text-rosa-escuro"></i> Add to cart</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-xl-4">
-                        <div class="p-4 rounded bg-light">
-                            <div class="row align-items-center">
-                                <div class="col-6">
-                                    <img src="img/best-product-3.jpg" class="img-fluid rounded-circle w-100" alt="">
-                                </div>
-                                <div class="col-6">
-                                    <a href="#" class="h5">Organic Tomato</a>
-                                    <div class="d-flex my-3">
-                                        <i class="fas fa-star text-rosa-escuro"></i>
-                                        <i class="fas fa-star text-rosa-escuro"></i>
-                                        <i class="fas fa-star text-rosa-escuro"></i>
-                                        <i class="fas fa-star text-rosa-escuro"></i>
-                                        <i class="fas fa-star"></i>
-                                    </div>
-                                    <h4 class="mb-3">3.12 $</h4>
-                                    <a href="#" class="btn border border-secondary rounded-pill px-3 text-rosa-escuro"><i class="fa fa-shopping-bag me-2 text-rosa-escuro"></i> Add to cart</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-xl-4">
-                        <div class="p-4 rounded bg-light">
-                            <div class="row align-items-center">
-                                <div class="col-6">
-                                    <img src="img/best-product-4.jpg" class="img-fluid rounded-circle w-100" alt="">
-                                </div>
-                                <div class="col-6">
-                                    <a href="#" class="h5">Organic Tomato</a>
-                                    <div class="d-flex my-3">
-                                        <i class="fas fa-star text-rosa-escuro"></i>
-                                        <i class="fas fa-star text-rosa-escuro"></i>
-                                        <i class="fas fa-star text-rosa-escuro"></i>
-                                        <i class="fas fa-star text-rosa-escuro"></i>
-                                        <i class="fas fa-star"></i>
-                                    </div>
-                                    <h4 class="mb-3">3.12 $</h4>
-                                    <a href="#" class="btn border border-secondary rounded-pill px-3 text-rosa-escuro"><i class="fa fa-shopping-bag me-2 text-rosa-escuro"></i> Add to cart</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-xl-4">
-                        <div class="p-4 rounded bg-light">
-                            <div class="row align-items-center">
-                                <div class="col-6">
-                                    <img src="img/best-product-5.jpg" class="img-fluid rounded-circle w-100" alt="">
-                                </div>
-                                <div class="col-6">
-                                    <a href="#" class="h5">Organic Tomato</a>
-                                    <div class="d-flex my-3">
-                                        <i class="fas fa-star text-rosa-escuro"></i>
-                                        <i class="fas fa-star text-rosa-escuro"></i>
-                                        <i class="fas fa-star text-rosa-escuro"></i>
-                                        <i class="fas fa-star text-rosa-escuro"></i>
-                                        <i class="fas fa-star"></i>
-                                    </div>
-                                    <h4 class="mb-3">3.12 $</h4>
-                                    <a href="#" class="btn border border-secondary rounded-pill px-3 text-rosa-escuro"><i class="fa fa-shopping-bag me-2 text-rosa-escuro"></i> Add to cart</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-xl-4">
-                        <div class="p-4 rounded bg-light">
-                            <div class="row align-items-center">
-                                <div class="col-6">
-                                    <img src="img/best-product-6.jpg" class="img-fluid rounded-circle w-100" alt="">
-                                </div>
-                                <div class="col-6">
-                                    <a href="#" class="h5">Organic Tomato</a>
-                                    <div class="d-flex my-3">
-                                        <i class="fas fa-star text-rosa-escuro"></i>
-                                        <i class="fas fa-star text-rosa-escuro"></i>
-                                        <i class="fas fa-star text-rosa-escuro"></i>
-                                        <i class="fas fa-star text-rosa-escuro"></i>
-                                        <i class="fas fa-star"></i>
-                                    </div>
-                                    <h4 class="mb-3">3.12 $</h4>
-                                    <a href="#" class="btn border border-secondary rounded-pill px-3 text-rosa-escuro"><i class="fa fa-shopping-bag me-2 text-rosa-escuro"></i> Add to cart</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-6 col-xl-3">
-                        <div class="text-center">
-                            <img src="img/fruite-item-1.jpg" class="img-fluid rounded" alt="">
-                            <div class="py-4">
-                                <a href="#" class="h5">Organic Tomato</a>
-                                <div class="d-flex my-3 justify-content-center">
-                                    <i class="fas fa-star text-rosa-escuro"></i>
-                                    <i class="fas fa-star text-rosa-escuro"></i>
-                                    <i class="fas fa-star text-rosa-escuro"></i>
-                                    <i class="fas fa-star text-rosa-escuro"></i>
-                                    <i class="fas fa-star"></i>
-                                </div>
-                                <h4 class="mb-3">3.12 $</h4>
-                                <a href="#" class="btn border border-secondary rounded-pill px-3 text-rosa-escuro"><i class="fa fa-shopping-bag me-2 text-rosa-escuro"></i> Add to cart</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-6 col-xl-3">
-                        <div class="text-center">
-                            <img src="img/fruite-item-2.jpg" class="img-fluid rounded" alt="">
-                            <div class="py-4">
-                                <a href="#" class="h5">Organic Tomato</a>
-                                <div class="d-flex my-3 justify-content-center">
-                                    <i class="fas fa-star text-rosa-escuro"></i>
-                                    <i class="fas fa-star text-rosa-escuro"></i>
-                                    <i class="fas fa-star text-rosa-escuro"></i>
-                                    <i class="fas fa-star text-rosa-escuro"></i>
-                                    <i class="fas fa-star"></i>
-                                </div>
-                                <h4 class="mb-3">3.12 $</h4>
-                                <a href="#" class="btn border border-secondary rounded-pill px-3 text-rosa-escuro"><i class="fa fa-shopping-bag me-2 text-rosa-escuro"></i> Add to cart</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-6 col-xl-3">
-                        <div class="text-center">
-                            <img src="img/fruite-item-3.jpg" class="img-fluid rounded" alt="">
-                            <div class="py-4">
-                                <a href="#" class="h5">Organic Tomato</a>
-                                <div class="d-flex my-3 justify-content-center">
-                                    <i class="fas fa-star text-rosa-escuro"></i>
-                                    <i class="fas fa-star text-rosa-escuro"></i>
-                                    <i class="fas fa-star text-rosa-escuro"></i>
-                                    <i class="fas fa-star text-rosa-escuro"></i>
-                                    <i class="fas fa-star"></i>
-                                </div>
-                                <h4 class="mb-3">3.12 $</h4>
-                                <a href="#" class="btn border border-secondary rounded-pill px-3 text-rosa-escuro"><i class="fa fa-shopping-bag me-2 text-rosa-escuro"></i> Add to cart</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-6 col-xl-3">
-                        <div class="text-center">
-                            <img src="img/fruite-item-4.jpg" class="img-fluid rounded" alt="">
-                            <div class="py-2">
-                                <a href="#" class="h5">Organic Tomato</a>
-                                <div class="d-flex my-3 justify-content-center">
-                                    <i class="fas fa-star text-rosa-escuro"></i>
-                                    <i class="fas fa-star text-rosa-escuro"></i>
-                                    <i class="fas fa-star text-rosa-escuro"></i>
-                                    <i class="fas fa-star text-rosa-escuro"></i>
-                                    <i class="fas fa-star"></i>
-                                </div>
-                                <h4 class="mb-3">3.12 $</h4>
-                                <a href="#" class="btn border border-secondary rounded-pill px-3 text-rosa-escuro"><i class="fa fa-shopping-bag me-2 text-rosa-escuro"></i>  to cart</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Bestsaler Product End -->
+
 
 
 
