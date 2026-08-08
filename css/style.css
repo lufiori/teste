@@ -237,7 +237,7 @@
     transform: rotateX(0deg);
     visibility: visible;
     background: var(--bs-light) !important;
-    
+    border-radius: 10px !important;
     transition: .5s;
     opacity: 1;
 }
